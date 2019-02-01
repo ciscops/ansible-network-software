@@ -1,0 +1,18 @@
+---
+- name: Active image {{ versionmap[device_model].img }}
+  ios_config:
+    lines:
+      - boot system switch all "{{ versionmap[device_model].img }}"
+    save_when: changed
+  when: "'3750' in device_model"
+  register: image_activate
+
+- name: Reload the Switch
+  ios_command:
+    commands:
+      - command: reload
+        prompt: Proceed with reload?
+        answer: y
+  when: image_activate.changed
+  tags:
+    - reload
