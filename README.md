@@ -99,8 +99,5 @@ Then invoke as:
 
 ## License
 
-GPL-3
+CISCO SAMPLE CODE LICENSE
 
-## Author Information
-
-Steven Carter
